@@ -1,10 +1,14 @@
 import Link from "next/link";
 import image from "next/image"
+import AboutPage from "../components/AboutPage"
+import ProjectPage from "../components/ProjectPage"
+import SkillPage from "../components/SkillPage"
+import ContactPage from "../components/ContactPage"
 
 export default function Home() {
   return (
+    <>
     <section className="flex flex-col md:flex-row justify-between items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* LEFT SIDE - IMAGE */}
       <div className="flex justify-center items-center w-full md:w-1/2 p-8">
         <img
           className="w-full md:max-w-lg h-auto transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0"
@@ -24,12 +28,12 @@ export default function Home() {
           Creative <span className="font-semibold">Developer</span>
         </p>
 
-        <Link
-          href="/project"
+        <a
+          href="#project"
           className="mt-8 px-6 py-3 bg-gray-900 text-white text-lg font-medium rounded-sm hover:bg-gray-700 transition"
         >
           View My Work
-        </Link>
+        </a>
       </div>
 
       <div className="absolute bottom-4 right-4 flex space-x-4">
@@ -49,5 +53,10 @@ export default function Home() {
         </a>
       </div>
     </section>
+    <AboutPage />
+    <ProjectPage />
+    <SkillPage />
+    <ContactPage />
+    </>
   );
 }

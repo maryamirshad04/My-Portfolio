@@ -21,16 +21,16 @@ export default function Footer() {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <Link href="/about" className="hover:underline">About</Link>
+                  <a href="#about" className="hover:underline">About</a>
                 </li>
                 <li className="mb-4">
-                  <Link href="/project" className="hover:underline">Projects</Link>
+                  <a href="#project" className="hover:underline">Projects</a>
                 </li>
                 <li className="mb-4">
-                  <Link href="/skills" className="hover:underline">Skills</Link>
+                  <a href="#skills" className="hover:underline">Skills</a>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:underline">Contact</Link>
+                  <a href="#contact" className="hover:underline">Contact</a>
                 </li>
               </ul>
             </div>
