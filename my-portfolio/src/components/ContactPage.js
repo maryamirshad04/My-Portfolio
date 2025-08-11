@@ -38,7 +38,6 @@ export default function ContactPage() {
         <div className="w-24 h-1 bg-blue-500 mx-auto mt-2 mb-8"></div>
       </div>
 
-      {/* Contact Info */}
       <div className="flex flex-col md:flex-row justify-center gap-6 mb-10">
         <div className="flex items-center gap-4 bg-gray-100 dark:bg-gray-800 px-6 py-4 rounded-md border shadow-sm w-full md:w-1/2">
           <MailIcon className="w-5 h-5 text-gray-500 dark:text-gray-300" />
@@ -52,7 +51,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Contact Form */}
       <div className="max-w-3xl mx-auto">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>

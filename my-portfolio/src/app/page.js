@@ -35,23 +35,6 @@ export default function Home() {
           View My Work
         </a>
       </div>
-
-      <div className="absolute bottom-4 right-4 flex space-x-4">
-        <a
-          href="https://github.com/maryamirshad04"
-          target="_blank"
-          className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-        >
-          <i className="fa-brands fa-github text-xl"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/maryam-irshad-a72333374?"
-          target="_blank"
-          className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-        >
-          <i className="fa-brands fa-linkedin text-xl"></i>
-        </a>
-      </div>
     </section>
     <AboutPage />
     <ProjectPage />

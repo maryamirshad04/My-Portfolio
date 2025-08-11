@@ -25,7 +25,7 @@ export default function Home() {
             <div className="mb-10 relative">
               <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-4 top-1.5"></div>
               <p className="text-sm bg-gray-200 text-gray-800 px-3 py-1 rounded-md inline-block mb-1 dark:bg-gray-700 dark:text-white">
-                2022 - Present
+                2023 - Present
               </p>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 FAST-NUCES
