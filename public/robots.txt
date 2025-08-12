@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /Untitled.png
+Allow: /
+
+Sitemap: https://my-portfolio-lilac-six-70.vercel.app/sitemap.xml
