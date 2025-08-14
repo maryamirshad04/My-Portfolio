@@ -44,6 +44,11 @@ export default function Navbar() {
           <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 
           dark:border-gray-700 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:md:bg-transparent">
             <li>
+              <Link href="/" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">
+              Home
+              </Link>
+            </li>
+            <li>
             <a href="#about" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">
               About
             </a>
@@ -61,6 +66,13 @@ export default function Navbar() {
                 Skills
               </a>
             </li>
+            <li>
+            <Link href="/blog" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 
+                dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">
+            Blog
+            </Link>
+            </li>
+
             <li>
               <a href="#contact" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 
                 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">
