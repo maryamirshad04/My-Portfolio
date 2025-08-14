@@ -64,7 +64,7 @@ export default function BlogListPage() {
                   {blog.summary}
                 </p>
                 <Link
-                  href={`/blog/${blog._id}`}
+                  href={`/blog/${blog._id.toString()}`}
                   className="inline-flex items-center w-fit px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800"
                 >
                   Read more →
