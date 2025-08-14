@@ -14,27 +14,40 @@ export async function GET(req) {
     const database = client.db("blogDB");
     const blogsCollection = database.collection("blogs");
 
-    const blogs = await blogsCollection.find({})
+    const blogs = await blogsCollection
+      .find({})
       .skip(skip)
       .limit(limit)
       .toArray();
 
+    // Convert ObjectId to string
+    const blogsWithStringId = blogs.map(blog => ({
+      ...blog,
+      _id: blog._id.toString(),
+    }));
+
     const totalBlogs = await blogsCollection.countDocuments();
 
-    return new Response(JSON.stringify({
-      blogs,
-      totalPages: Math.ceil(totalBlogs / limit),
-      currentPage: page
-    }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        blogs: blogsWithStringId,
+        totalPages: Math.ceil(totalBlogs / limit),
+        currentPage: page,
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
     console.error("Error fetching blogs:", error);
-    return new Response(JSON.stringify({ error: "Failed to fetch blogs" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Failed to fetch blogs" }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } finally {
     await client.close();
   }
