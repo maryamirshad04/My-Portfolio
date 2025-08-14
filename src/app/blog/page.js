@@ -54,7 +54,6 @@ export default function BlogListPage() {
                 />
               </Link>
 
-              {/* Blog Content */}
               <div className="p-5 flex flex-col sm:w-2/3 space-y-3">
                 <Link href={`/blog/${blog._id}`}>
                   <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -78,7 +77,6 @@ export default function BlogListPage() {
         <p>No blogs yet.</p>
       )}
 
-      {/* Pagination Controls */}
       <div className="mt-6 flex justify-center items-center gap-2">
         <button
           onClick={handlePrev}
