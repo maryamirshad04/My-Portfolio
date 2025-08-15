@@ -1,26 +1,30 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation"; 
 
 export default function BlogListPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const initialPage = Number(searchParams.get("page")) || 1; 
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(initialPage); 
   const [totalPages, setTotalPages] = useState(1);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   const fetchBlogs = async (page) => {
-    setLoading(true);
     const res = await fetch(`/api/blog?page=${page}&limit=2`, { cache: "no-store" });
     const data = await res.json();
     setBlogs(data.blogs || []);
     setTotalPages(data.totalPages || 1);
-    setCurrentPage(data.currentPage || 1);
-    setLoading(false);
+    setFirstLoad(false);
   };
 
   useEffect(() => {
     fetchBlogs(currentPage);
-  }, [currentPage]);
+    router.replace(`/blog?page=${currentPage}`); 
+  }, [currentPage]); 
 
   const handlePrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
@@ -37,9 +41,7 @@ export default function BlogListPage() {
         <div className="w-24 h-1 bg-blue-500 mx-auto mt-2 mb-8"></div>
       </div>
 
-      {loading ? (
-        <p className="text-center">Loading...</p>
-      ) : blogs.length > 0 ? (
+      {!firstLoad && blogs.length > 0 && (
         <div className="flex flex-col gap-6">
           {blogs.map((blog) => (
             <div
@@ -73,9 +75,9 @@ export default function BlogListPage() {
             </div>
           ))}
         </div>
-      ) : (
-        <p>No blogs yet.</p>
       )}
+
+      {!firstLoad && blogs.length === 0 && <p>No blogs yet.</p>}
 
       <div className="mt-6 flex justify-center items-center gap-2">
         <button
